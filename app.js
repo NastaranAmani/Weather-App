@@ -50,8 +50,10 @@ function displayWeather(response) {
     let windSpeed = document.querySelector(".wind");
     let humidity = document.querySelector(".humidity");
     let iconElement = document.querySelector('.icon');
+    
+    celciusTemperature = response.data.main.temp
 
-    currentTemperature.innerHTML = `${Math.round(response.data.main.temp)}℃`;
+    currentTemperature.innerHTML = `${Math.round(celciusTemperature)}`;
     weatherDescription.innerHTML = `, ${response.data.weather[0].description}`;
     windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
     humidity.innerHTML = `${Math.round(response.data.main.humidity)}%`;
@@ -79,3 +81,29 @@ function displayForecast(response) {
     })
     forecastElement.innerHTML = forecastHTML
 }
+// Fahrenheit Temperature
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector('.temp');
+
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature)
+}
+
+function displayCelcius(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active")
+  fahrenheitLink.classList.remove("active")
+  let temperatureElement = document.querySelector('.temp');
+  temperatureElement.innerHTML = Math.round(celciusTemperature)
+}
+
+let celciusTemperature = null;
+
+fahrenheitLink = document.querySelector('.fahrenheit')
+fahrenheitLink.addEventListener('click', displayFahrenheit);
+
+celciusLink = document.querySelector('.celcius')
+celciusLink.addEventListener('click', displayCelcius);

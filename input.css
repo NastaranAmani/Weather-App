@@ -5,3 +5,6 @@
 * {
     font-family: 'Courgette', cursive;
 }
+.active {
+    color: #000;
+}

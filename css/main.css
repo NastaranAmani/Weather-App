@@ -653,6 +653,11 @@ video {
   color: rgb(206 119 119 / var(--tw-text-opacity));
 }
 
+.text-\[\#ce7777\] {
+  --tw-text-opacity: 1;
+  color: rgb(206 119 119 / var(--tw-text-opacity));
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -666,6 +671,10 @@ video {
 
 * {
   font-family: 'Courgette', cursive;
+}
+
+.active {
+  color: #000;
 }
 
 .placeholder\:text-sm::-moz-placeholder {
